@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advanced Login Page</title>
+    <style>
+      /* Reset and base styles */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background: linear-gradient(to right, #4facfe, #00f2fe);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .card {
+        background: #fff;
+        padding: 40px 30px;
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        width: 360px;
+        text-align: center;
+        animation: fadeIn 1s ease-in-out;
+      }
+
+      h2 {
+        margin-bottom: 25px;
+        color: #333;
+      }
+
+      .input-group {
+        position: relative;
+        margin-bottom: 25px;
+        text-align: left;
+      }
+
+      .input-group input {
+        width: 100%;
+        padding: 12px 40px 12px 12px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        outline: none;
+        transition: 0.3s;
+      }
+
+      .input-group label {
+        position: absolute;
+        top: 50%;
+        left: 12px;
+        transform: translateY(-50%);
+        color: #888;
+        pointer-events: none;
+        transition: 0.3s;
+        background-color: transparent;
+      }
+
+      .input-group input:focus + label,
+      .input-group input:valid + label {
+        top: -10px;
+        left: 10px;
+        font-size: 12px;
+        background: #fff;
+        padding: 0 4px;
+        color: #333;
+      }
+
+      .input-group i {
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #888;
+        cursor: pointer;
+      }
+
+      .options {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        font-size: 14px;
+      }
+
+      .options label {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+
+      .options a {
+        text-decoration: none;
+        color: #4facfe;
+      }
+
+      button {
+        background: #4facfe;
+        color: white;
+        padding: 12px;
+        width: 100%;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background 0.3s;
+      }
+
+      button:hover {
+        background: #00c6ff;
+      }
+
+      .social-login {
+        margin-top: 20px;
+      }
+
+      .social-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        width: 100%;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.3s;
+        background-color: #fff;
+        font-size: 14px;
+      }
+
+      .social-btn:hover {
+        background-color: #f0f0f0;
+      }
+
+      .social-btn i {
+        margin-right: 8px;
+      }
+
+      /* Error shake animation */
+      .error {
+        animation: shake 0.4s ease-in-out;
+        border-color: red;
+      }
+
+      @keyframes shake {
+        0% {
+          transform: translateX(0);
+        }
+        25% {
+          transform: translateX(-5px);
+        }
+        50% {
+          transform: translateX(5px);
+        }
+        75% {
+          transform: translateX(-5px);
+        }
+        100% {
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+
+    <!-- Font Awesome for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <div class="card">
+      <h2>Login</h2>
+      <form id="loginForm" onsubmit="return validateForm(event)">
+        <!-- Email Field -->
+        <div class="input-group">
+          <input type="email" id="email" required />
+          <label for="email">Email</label>
+          <i class="fa fa-envelope"></i>
+        </div>
+
+        <!-- Password Field with toggle icon -->
+        <div class="input-group">
+          <input type="password" id="password" required />
+          <label for="password">Password</label>
+          <i
+            class="fa fa-eye"
+            id="togglePassword"
+            onclick="togglePassword()"
+          ></i>
+        </div>
+
+        <!-- Remember Me and Forgot Password -->
+        <div class="options">
+          <label> <input type="checkbox" /> Remember Me </label>
+          <a href="#">Forgot Password?</a>
+        </div>
+
+        <!-- Login Button -->
+        <button type="submit">Login</button>
+      </form>
+
+      <!-- Social Login Section -->
+      <div class="social-login">
+        <p>or login with</p>
+        <div class="social-btn" onclick="alert('Google login not implemented')">
+          <i class="fab fa-google"></i> Continue with Google
+        </div>
+        <div class="social-btn" onclick="alert('GitHub login not implemented')">
+          <i class="fab fa-github"></i> Continue with GitHub
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript Section -->
+    <script>
+      // Toggle password visibility
+      function togglePassword() {
+        const passwordInput = document.getElementById("password");
+        const icon = document.getElementById("togglePassword");
+        if (passwordInput.type === "password") {
+          passwordInput.type = "text";
+          icon.classList.remove("fa-eye");
+          icon.classList.add("fa-eye-slash");
+        } else {
+          passwordInput.type = "password";
+          icon.classList.remove("fa-eye-slash");
+          icon.classList.add("fa-eye");
+        }
+      }
+
+      // Example validation (simple)
+      function validateForm(event) {
+        const email = document.getElementById("email");
+        const password = document.getElementById("password");
+
+        // Reset previous errors
+        email.classList.remove("error");
+        password.classList.remove("error");
+
+        // Basic check
+        if (email.value === "" || password.value === "") {
+          event.preventDefault();
+          if (!email.value) email.classList.add("error");
+          if (!password.value) password.classList.add("error");
+          return false;
+        }
+
+        return true;
+      }
+    </script>
+  </body>
+</html>
