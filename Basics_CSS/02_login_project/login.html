@@ -3,14 +3,153 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login Page</title>
+    <title>Advanced Login Page</title>
+    <style>
+      /* Reset and base styles */
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      /* Full-screen centered layout with gradient background */
+      body {
+        background: linear-gradient(to right, #4facfe, #00f2fe);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      /* Login card container */
+      .card {
+        background: #ffffff;
+        padding: 40px 30px;
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        width: 320px;
+        text-align: center;
+        position: relative;
+        animation: fadeIn 1s ease-in-out; /* Fade-in animation */
+      }
+
+      /* Heading style */
+      h2 {
+        margin-bottom: 30px;
+        color: #333;
+      }
+
+      /* Wrapper for each input and its label/icon */
+      .input-group {
+        position: relative;
+        margin-bottom: 25px;
+        text-align: left;
+      }
+
+      /* Input field styling */
+      .input-group input {
+        width: 100%;
+        padding: 12px 40px 12px 12px; /* Extra right padding for icon */
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        outline: none;
+        transition: 0.3s;
+      }
+
+      /* Floating label style */
+      .input-group label {
+        position: absolute;
+        top: 50%;
+        left: 12px;
+        transform: translateY(-50%);
+        color: #888;
+        pointer-events: none;
+        transition: 0.3s;
+        background-color: transparent;
+      }
+
+      /* When input is focused or has value, float label up */
+      .input-group input:focus + label,
+      .input-group input:valid + label {
+        top: -10px;
+        left: 10px;
+        font-size: 12px;
+        background: #fff;
+        padding: 0 4px;
+        color: #333;
+      }
+
+      /* Icon inside input field (right side) */
+      .input-group i {
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #888;
+      }
+
+      /* Submit button styling */
+      button {
+        background: #4facfe;
+        color: white;
+        padding: 12px;
+        width: 100%;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background 0.3s;
+      }
+
+      /* Hover effect for button */
+      button:hover {
+        background: #00c6ff;
+      }
+
+      /* Simple fade-in animation */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+
+    <!-- Font Awesome for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
   </head>
+
   <body>
     <div class="card">
       <h2>Login</h2>
+
+      <!-- Login Form -->
       <form>
-        <input type="email" name="" id="" placeholder="Email" required />
-        <input type="password" name="" id="" placeholder="Password" required />
+        <!-- Email input group -->
+        <div class="input-group">
+          <input type="email" id="email" name="email" required />
+          <label for="email">Email</label>
+          <i class="fa fa-envelope"></i>
+          <!-- Icon for email -->
+        </div>
+
+        <!-- Password input group -->
+        <div class="input-group">
+          <input type="password" id="password" name="password" required />
+          <label for="password">Password</label>
+          <i class="fa fa-lock"></i>
+          <!-- Icon for password -->
+        </div>
+
+        <!-- Submit button -->
         <button type="submit">Login</button>
       </form>
     </div>
