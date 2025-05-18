@@ -1,7 +1,3 @@
-Absolutely! Here’s a more **attractive, emoji-rich, and professionally styled** `README.md` for your **Web Development repository** based on *Hitesh Choudhary’s Udemy Batch*. I've added placeholders for hosted project links — you can replace them with your actual URLs later.
-
----
-
 # 🌐 Web Development Bootcamp – Hitesh Choudhary (Udemy Batch)
 
 > ✨ *A developer's journey isn't about perfection – it's about progression.*
