@@ -72,8 +72,8 @@ Here are some live demos of mini-projects I've built during the course:
 
 ## 🤝 Let's Connect
 
-🔗 [LinkedIn](https://linkedin.com/in/your-profile)
-🐙 [GitHub](https://github.com/your-github)
+🔗 [LinkedIn](https://linkedin.com/in/sauravrajput63)
+🐙 [GitHub](https://github.com/SAURAV6393)
 📩 Feel free to open issues or suggestions!
 
 > 💬 *"Learning to code is not a sprint, it's a climb — and I'm loving every bit of it."*
